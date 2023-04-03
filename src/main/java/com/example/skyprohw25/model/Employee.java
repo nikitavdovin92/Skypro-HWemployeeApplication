@@ -11,6 +11,7 @@ public class Employee {
     @JsonProperty("lastName")
     private final String surName;
 
+
     public Employee(String name, String surName) {
         this.name = name;
         this.surName = surName;
