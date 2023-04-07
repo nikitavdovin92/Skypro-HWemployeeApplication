@@ -1,7 +1,5 @@
 package com.example.skyprohw25.model;
-
 import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.Objects;
 
 public class Employee {
