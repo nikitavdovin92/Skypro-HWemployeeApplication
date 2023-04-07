@@ -1,43 +1,37 @@
 package com.example.skyprohw25.model;
-
-import com.fasterxml.jackson.annotation.JsonProperty;
-
 import java.util.Objects;
 
 public class Employee {
+    private final String firstName;
+    private final String lastName;
 
-    @JsonProperty("firstName")
-    private final String name;
-    @JsonProperty("lastName")
-    private final String surName;
-
-    public Employee(String name, String surName) {
-        this.name = name;
-        this.surName = surName;
+    public Employee (String firstName, String lastName) {
+        this.firstName = firstName;
+        this.lastName = lastName;
     }
 
-    public String getName() {
-        return name;
-    }
-    public String getSurName() {
-        return surName;
-    }
+    public String getFirstName() { return firstName; }
+    public String getLastName() {return lastName; }
+    public String fullName() { return firstName + " " + lastName; }
 
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
-        if (!(o instanceof Employee employee)) return false;
-        return getName().equals(employee.getName()) && getSurName().equals(employee.getSurName());
+        if (!(o instanceof Employee)) return false;
+        Employee employee = (Employee) o;
+        return Objects.equals(firstName, employee.firstName) && Objects.equals(lastName, employee.lastName);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(getName(), getSurName());
+        return Objects.hash(firstName, lastName);
     }
 
     @Override
     public String toString() {
-        return String.format ("Фамилия Имя: %s %s", name, surName);
-
+        return "Employee{" +
+                "firstName='" + firstName + '\'' +
+                ", lastName='" + lastName + '\'' +
+                '}';
     }
 }
