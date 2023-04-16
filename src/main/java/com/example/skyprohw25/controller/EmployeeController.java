@@ -14,26 +14,25 @@ import java.util.Collection;
 public class EmployeeController {
 
     private final EmployeeService service;
-
-    public EmployeeController(EmployeeService service) {
+    EmployeeController(EmployeeService service) {
         this.service = service;
     }
 
     @GetMapping(value = "/add")
-    public Employee addEmployee (@RequestParam String firstName, @RequestParam String lastName) {
-        return service.add (firstName, lastName);
+    public Employee addEmployee (@RequestParam String firstName, @RequestParam String lastName, @RequestParam double salary, @RequestParam int department) {
+        return service.add (firstName,lastName, salary, department);
 
     }
 
     @GetMapping(value = "/remove")
-    public Employee removeEmployee (@RequestParam String firstName, @RequestParam String lastName) {
-        return service.remove(firstName, lastName);
+    public Employee removeEmployee (@RequestParam String firstName, @RequestParam String lastName, @RequestParam double salary, @RequestParam int department) {
+        return service.remove(firstName,lastName, salary, department);
 
     }
 
     @GetMapping(value = "/find")
-    public Employee find (@RequestParam String firstName, @RequestParam String lastName) {
-        return service.find(firstName, lastName);
+    public Employee find (@RequestParam String firstName, @RequestParam String lastName, @RequestParam double salary, @RequestParam int department) {
+        return service.find(firstName,lastName, salary, department);
     }
 
     @GetMapping
